@@ -18,12 +18,7 @@ build:
         image: $IMAGE_BASE
         name: $CNT_NAME 
         port: 9000
-    - script:
-         code: |
-           echo "Testing the container.."
-           echo "CONTAINER NAME is $CNT_NAME"
-           curl -o /var/output.html $CNT_NAME:9000/listUsers
-           cat /var/output.html 
+   
     - script: 
         name: Test the container that we started as a service
         code: |
