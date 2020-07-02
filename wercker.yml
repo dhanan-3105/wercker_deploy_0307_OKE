@@ -22,12 +22,12 @@ build:
          code: |
            echo "Testing the container.."
            echo "CONTAINER NAME is $CNT_NAME"
-           curl -o /var/output.html $CNT_NAME:80
+           curl -o /var/output.html $CNT_NAME:9000/listUsers
            cat /var/output.html 
     - script: 
         name: Test the container that we started as a service
         code: |
-            if curlOutput=`curl -s $CNT_NAME:80`; then 
+            if curlOutput=`curl -s $CNT_NAME:9000/listUsers`; then 
                 export expected=`echo $curlOutput|wc -c`
                 if [ $expected -eq 0 ]; then
                     echo "Test failed container gave unexpected response: " 
