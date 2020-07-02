@@ -60,17 +60,7 @@ build:
                 echo "Test failed: container did not respond"
                 exit 1
             fi 
-push-build:
- steps:
-    - internal/docker-push:
-        image: $IMAGE_BASE 
-        repository: ${USERNAME}/${IMAGE_BASE}
-        username: $USERNAME
-        password: $PASSWORD
-    - script:
-          name: Just-Pushed
-          code:
-             echo "Pushed the Image to Cloud"
+
 
 deploy-to-minikube:
   box:
