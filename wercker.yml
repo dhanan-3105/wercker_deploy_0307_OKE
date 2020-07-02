@@ -17,7 +17,7 @@ build:
     - internal/docker-run:
         image: $IMAGE_BASE
         name: $CNT_NAME 
-        port: 80
+        port: 9000
     - script:
          code: |
            echo "Testing the container.."
