@@ -80,3 +80,8 @@ deploy-to-minikube:
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create -f pod.yml 
+    - after-steps:
+          url: $SLACK_URL 
+          channel: notifications 
+          custom_message: Deploying $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
+          custom_color: #439fe03
