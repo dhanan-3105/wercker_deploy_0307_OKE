@@ -80,6 +80,7 @@ deploy-to-minikube:
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create -f pod.yml 
+  after-steps: 
     - slack-notifier:
           url: $SLACK_URL 
           channel: notifications 
