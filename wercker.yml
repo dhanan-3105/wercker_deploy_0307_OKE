@@ -85,5 +85,10 @@ deploy-to-minikube:
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create -f pod.yml 
+  after-steps: 
+    - slack-notifier:
+          url: $SLACK_URL 
+          channel: notifications 
+          custom_message: Deploying after kubernetes $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
   
           
