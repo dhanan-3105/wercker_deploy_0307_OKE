@@ -84,4 +84,4 @@ deploy-to-minikube:
           url: $SLACK_URL 
           channel: notifications 
           custom_message: Deploying $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
-          custom_color: #439fe03
+          
