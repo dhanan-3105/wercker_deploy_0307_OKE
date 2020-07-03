@@ -60,6 +60,11 @@ build:
                 echo "Test failed: container did not respond"
                 exit 1
             fi 
+  after-steps: 
+    - slack-notifier:
+          url: $SLACK_URL 
+          channel: notifications 
+          custom_message: Deploying $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
 
 
 deploy-to-minikube:
@@ -80,9 +85,5 @@ deploy-to-minikube:
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create -f pod.yml 
-  after-steps: 
-    - slack-notifier:
-          url: $SLACK_URL 
-          channel: notifications 
-          custom_message: Deploying $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
+  
           
