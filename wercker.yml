@@ -89,6 +89,6 @@ deploy-to-minikube:
     - slack-notifier:
           url: $SLACK_URL 
           channel: notifications 
-          custom_message: Deploying after kubernetes $WERCKER_GIT_BRANCH to $WERCKER_DEPLOYTARGET_NAME ($WERCKER_DEPLOY_URL) 
+          custom_message: Deploying after kubernetes to OKE by $USERNAME
   
           
